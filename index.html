@@ -1,13 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./estilos/estilos.css">
-</head>
-<body>
-    <h2>Hola e-commerce</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="./estilos/estilos.css" />
+  </head>
+  <body>
+    <h2>Api E-commerce</h2>
+    <details>
+      <summary>Productos</summary>
+      <p>Este es el contenido para las peticiones en los productos</p>
+      Buscar productos<input type="number" id="buscarInput" />
+      <button id="buscar_productos">Buscar producto</button>
+      <br />
+      Obtener productos filtrados <input type="number" id="ObtenerInput" />
+      <button id="obtener">Obtener cantidad de productos</button>
+    </details>
+    <details>
+      <summary>Carritos</summary>
+      <p>Este es el contenido para las peticiones en el carrito</p>
+       Buscar carrito especifico: <input type="number" id="buscarCarrito" />
+      <button id="buscar_carrito">Buscar carrito usuario ID</button>
+      <br />
+      <button id="todo_carrito">todo el carrito</button>
+    </details>
+    <details>
+      <summary>Usuarios</summary>
+      <p>Este es el contenido que se para las peticiones de los usuarios</p>
+      Buscar usuario <input type="number" id="buscarInput" />
+      <button id="buscar_productos">Buscar producto</button>
+      <br />
+      Obtener usuarios filtrados <input type="number" id="ObtenerInput" />
+      <button id="obtener">Obtener cantidad de productos</button>
+    </details>
+
+    <div id="resultado"></div>
+    <dialog id="modal">
+      <form method="dialog">
+        <h3>Producto</h3>
+        <label for="titulo">Nuevo Título:</label>
+        <input
+          type="text"
+          id="titulo"
+          placeholder="Escribe el nuevo título"
+        />
+        <label for="price">Nuevo Precio:</label>
+        <input
+          type="number"
+          id="price"
+          placeholder="Escribe el nuevo precio"
+        />
+        <label for="description">Nueva Descripcion:</label>
+        <input
+          type="text"
+          id="description"
+          placeholder="Escribe la nueva Descripcion"
+        />
+        <label for="price">Nueva Categoria:</label>
+        <input
+          type="text"
+          id="category"
+          placeholder="Escribe la nueva categoria"
+        />
+
+        <div style="margin-top: 15px">
+          <button type="button" id="btnGuardar">Guardar</button>
+          <button
+            type="button"
+            id="btnCerrar"
+            onclick="this.closest('dialog').close()"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </dialog>
     <script src="./scripts/script_e-commerce.js"></script>
-</body>
+  </body>
 </html>
