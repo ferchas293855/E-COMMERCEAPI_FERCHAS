@@ -28,10 +28,10 @@ const obtener = async () => {
         (producto) =>
           `<div class="tarjeta">
             <h5>${producto.id}</h5>
-            <h5 class="p-titulo">${producto.title}</h5>
-            <h5 class="p-precio">${producto.price}</h5>
-            <p class="p-desc">${producto.description}</p>
-            <p class="p-cat">${producto.category}</p>
+            <h5 class="p-titulo">TITULO: ${producto.title}</h5>
+            <h5 class="p-precio">PRECIO: ${producto.price}</h5>
+            <p class="p-desc">DESCRIPCION: ${producto.description}</p>
+            <p class="p-cat">CATEGORIA: ${producto.category}</p>
             <img src="${producto.image}"/>
             <button onclick="editar(${producto.id},this)">Editar</button>
             <button onclick="eliminar(${producto.id},this)">Eliminar</button>
@@ -50,14 +50,16 @@ const obtenerP = async () => {
     const res = await data.json();
     console.log(res);
     const { id, title, price, description, category, image } = res;
-    contenido.innerHTML = `<div class="tarjeta">
-            <h5>${id}</h5>
-            <h5>${title}</h5>
-            <h5>${price}</h5>
-            <p>${description}</p>
-            <p>${category}</p>
-            <img src="${image}"/>
-        </div>`;
+    contenido.innerHTML = `
+      <div class="tarjeta">
+        <h5 class="p-titulo">TITULO: ${title}</h5>
+        <h5 class="p-precio">PRECIO${price}</h5>
+        <p class="p-desc">DESCRIPCION: ${description}</p>
+        <p class="p-cat">CATEGORIA: ${category}</p>
+        <img src="${image}"/>
+        <button onclick="editar(${id},this)">Editar</button>
+        <button onclick="eliminar(${id},this)">Eliminar</button>
+      </div>`;
   } catch (error) {
     alert("fallo al hacer la peticion");
   }
@@ -182,14 +184,13 @@ const editar = async (id, btn) => {
             }),
           });
           const data = await res.json();
-          alert("actualizado con exito: ", data);
           const tarjeta = btn.closest(".tarjeta");
           if (tarjeta) {
             tarjeta.querySelector(".p-titulo").textContent = data.title;
             tarjeta.querySelector(".p-desc").textContent = data.description;
             tarjeta.querySelector(".p-precio").textContent = data.price;
             tarjeta.querySelector(".p-cat").textContent = data.category;
-            alert("¡Producto actualizado visualmente!");
+            alert("ACTUALIZADO CORRECTAMENTE!!");
           } else {
             alert("no se encontro la tarjeta");
           }
