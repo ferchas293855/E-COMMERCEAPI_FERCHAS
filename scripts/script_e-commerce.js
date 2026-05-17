@@ -230,8 +230,8 @@ const eliminar = async (id, btn) => {
     const data = await res.json();
     if (res.ok) {
       const tarjeta = btn.closest(".tarjeta");
+      tarjeta.style.opacity = "0.3";
       setTimeout(() => {
-        tarjeta.style.opacity = "0.3";
         alert("ELIIMINADO CORRECTAMENTE!!");
         tarjeta.remove();
       }, 1500);
