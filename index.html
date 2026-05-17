@@ -22,11 +22,20 @@
         <div class="accordion-content">
           <div class="accordion-body">
             <p>Este es el contenido para las peticiones en los productos</p>
-            Buscar productos <input type="number" id="buscarInput" placeholder="ingrese el id de un producto a buscar"/>
+            Buscar productos
+            <input
+              type="number"
+              id="buscarInput"
+              placeholder="ingrese el id de un producto a buscar"
+            />
             <button id="buscar_productos">Buscar producto</button>
             <br /><br />
             Obtener productos filtrados
-            <input type="number" id="ObtenerInput" placeholder="ingrese la cantidad"/>
+            <input
+              type="number"
+              id="ObtenerInput"
+              placeholder="ingrese la cantidad"
+            />
             <button id="obtener">Obtener cantidad de productos</button>
           </div>
         </div>
@@ -44,7 +53,11 @@
           <div class="accordion-body">
             <p>Este es el contenido para las peticiones en el carrito</p>
             Buscar carrito especifico:
-            <input type="number" id="buscarCarrito" placeholder="ingrese el id del carrito"/>
+            <input
+              type="number"
+              id="buscarCarrito"
+              placeholder="ingrese el id del carrito"
+            />
             <button id="buscar_carrito">Buscar carrito usuario ID</button>
           </div>
         </div>
@@ -63,7 +76,7 @@
             <input
               type="number"
               id="buscar_usuarios"
-              placeholder="obtener cantidad de usuarios"  
+              placeholder="obtener cantidad de usuarios"
             />
             <button id="obtener_usuarios">Obtener cantidad de usuarios</button>
             <br /><br />
@@ -82,7 +95,9 @@
         </div>
       </div>
     </div>
-    <div id="resultado"></div>
+    <div class="container">
+      <div id="resultado"></div>
+    </div>
     <dialog id="modal">
       <form method="dialog">
         <h3>Producto</h3>

@@ -228,14 +228,17 @@ dialog#modal #btnCerrar:hover {
 
 
 /* ==========================================================================
-   ESTILOS PARA LOS RESULTADOS DE LA API (#contenido y .tarjeta)
+   ESTILOS PARA LOS RESULTADOS DE LA API 
    ========================================================================== */
-
-#contenido {
+.container{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.container #resultado{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
-    max-width: 1200px;
+    width: 100%;
     margin: 30px auto;
     padding: 0 20px;
     box-sizing: border-box;

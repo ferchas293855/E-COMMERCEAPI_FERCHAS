@@ -143,8 +143,6 @@ function renderizarProductos(id, userId, productoR) {
                   <p class="p-cat">CATEGORIA: ${p.category}</p>
                   <p>Cantidad: ${p.quantity}</p>
                   <p><strong>Subtotal: $${(p.price * p.quantity).toFixed(2)}</strong></p>
-                  <button onclick="editar(${p.id},this)">Editar</button>
-                  <button onclick="eliminar(${p.id},this)">Eliminar</button>
               </div>
           `,
             )
