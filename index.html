@@ -8,49 +8,88 @@
   </head>
   <body>
     <h2>Api E-commerce</h2>
-    <details>
-      <summary>Productos</summary>
-      <p>Este es el contenido para las peticiones en los productos</p>
-      Buscar productos<input type="number" id="buscarInput" />
-      <button id="buscar_productos">Buscar producto</button>
-      <br />
-      Obtener productos filtrados <input type="number" id="ObtenerInput" />
-      <button id="obtener">Obtener cantidad de productos</button>
-    </details>
-    <details>
-      <summary>Carritos</summary>
-      <p>Este es el contenido para las peticiones en el carrito</p>
-       Buscar carrito especifico: <input type="number" id="buscarCarrito" />
-      <button id="buscar_carrito">Buscar carrito usuario ID</button>
-      <br />
-      <button id="todo_carrito">todo el carrito</button>
-    </details>
-    <details>
-      <summary>Usuarios</summary>
-      <p>Este es el contenido que se para las peticiones de los usuarios</p>
-      Buscar usuario <input type="number" id="buscarInput" />
-      <button id="buscar_productos">Buscar producto</button>
-      <br />
-      Obtener usuarios filtrados <input type="number" id="ObtenerInput" />
-      <button id="obtener">Obtener cantidad de productos</button>
-    </details>
+    <div class="container">
+      <!-- Acordeón 1: Productos -->
+      <div class="accordion-item">
+        <input
+          type="checkbox"
+          id="trigger-productos"
+          class="accordion-trigger"
+        />
+        <label for="trigger-productos" class="accordion-header"
+          >Productos</label
+        >
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <p>Este es el contenido para las peticiones en los productos</p>
+            Buscar productos <input type="number" id="buscarInput" placeholder="ingrese el id de un producto a buscar"/>
+            <button id="buscar_productos">Buscar producto</button>
+            <br /><br />
+            Obtener productos filtrados
+            <input type="number" id="ObtenerInput" placeholder="ingrese la cantidad"/>
+            <button id="obtener">Obtener cantidad de productos</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Acordeón 2: Carritos -->
+      <div class="accordion-item">
+        <input
+          type="checkbox"
+          id="trigger-carritos"
+          class="accordion-trigger"
+        />
+        <label for="trigger-carritos" class="accordion-header">Carritos</label>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <p>Este es el contenido para las peticiones en el carrito</p>
+            Buscar carrito especifico:
+            <input type="number" id="buscarCarrito" placeholder="ingrese el id del carrito"/>
+            <button id="buscar_carrito">Buscar carrito usuario ID</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acordeón 3: Login -->
+      <div class="accordion-item">
+        <input type="checkbox" id="trigger-login" class="accordion-trigger" />
+        <label for="trigger-login" class="accordion-header">Login</label>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <p>
+              Este es el contenido que se para la peticion de inicio de sesion e
+              usuarios
+            </p>
+            <input
+              type="number"
+              id="buscar_usuarios"
+              placeholder="obtener cantidad de usuarios"  
+            />
+            <button id="obtener_usuarios">Obtener cantidad de usuarios</button>
+            <br /><br />
+            <input
+              type="text"
+              id="username"
+              placeholder="Escribe tu username"
+            />
+            <input
+              type="password"
+              id="password"
+              placeholder="Escribe tu contraseña"
+            />
+            <button id="login">Iniciar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="resultado"></div>
     <dialog id="modal">
       <form method="dialog">
         <h3>Producto</h3>
         <label for="titulo">Nuevo Título:</label>
-        <input
-          type="text"
-          id="titulo"
-          placeholder="Escribe el nuevo título"
-        />
+        <input type="text" id="titulo" placeholder="Escribe el nuevo título" />
         <label for="price">Nuevo Precio:</label>
-        <input
-          type="number"
-          id="price"
-          placeholder="Escribe el nuevo precio"
-        />
+        <input type="number" id="price" placeholder="Escribe el nuevo precio" />
         <label for="description">Nueva Descripcion:</label>
         <input
           type="text"

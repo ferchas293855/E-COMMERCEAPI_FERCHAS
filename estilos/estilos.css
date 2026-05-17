@@ -1,0 +1,397 @@
+body {
+    background-color: rgb(197, 0, 197);
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.accordion-item {
+    margin: 20px 0;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    text-align: left;
+}
+
+.accordion-trigger {
+    display: none;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.accordion-header::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+}
+
+.accordion-body {
+    overflow: hidden;
+    padding: 0 20px;
+    transition: padding 0.3s ease;
+}
+
+.accordion-trigger:checked + .accordion-header::after {
+    transform: rotate(-135deg);
+}
+
+.accordion-trigger:checked ~ .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+.accordion-trigger:checked ~ .accordion-content .accordion-body {
+    padding: 15px 20px 25px 20px;
+}
+
+.accordion-body p {
+    margin-top: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.accordion-body input, 
+.accordion-body button {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.accordion-body input {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.accordion-body button {
+    background-color: white;
+    color: rgb(197, 0, 197);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.accordion-body button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.accordion-body button:active {
+    transform: scale(0.98);
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+    .accordion-body input, 
+    .accordion-body button {
+        width: 100%; 
+        display: block;
+    }
+    br {
+        display: none; 
+    }
+}
+/* ==========================================================================
+   ESTILOS PARA EL MODAL (DIALOG)
+   ========================================================================== */
+
+
+dialog#modal {
+    border: none;
+    border-radius: 12px;
+    background-color: #2a082a; 
+    color: white;
+    padding: 25px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+
+dialog#modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px); 
+}
+
+
+dialog#modal form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+dialog#modal h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #ff66ff; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+dialog#modal label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+dialog#modal input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+dialog#modal input:focus {
+    outline: none;
+    border-color: #ff66ff;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+dialog#modal #btnGuardar, 
+dialog#modal #btnCerrar {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+dialog#modal #btnGuardar {
+    background-color: rgb(197, 0, 197);
+    color: white;
+    margin-right: 10px;
+}
+
+dialog#modal #btnGuardar:hover {
+    background-color: rgb(230, 0, 230);
+}
+
+dialog#modal #btnCerrar {
+    background-color: #444;
+    color: #ccc;
+}
+
+dialog#modal #btnCerrar:hover {
+    background-color: #555;
+    color: white;
+}
+
+
+/* ==========================================================================
+   ESTILOS PARA LOS RESULTADOS DE LA API (#contenido y .tarjeta)
+   ========================================================================== */
+
+#contenido {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.tarjeta {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    box-sizing: border-box;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-color: rgba(197, 0, 197, 0.5);
+}
+
+
+.tarjeta h5, .tarjeta p {
+    margin: 6px 0;
+    word-break: break-word; 
+}
+
+.tarjeta h5:first-child {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85em;
+}
+
+.tarjeta .p-titulo {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ffb3ff;
+}
+
+.tarjeta .p-precio {
+    color: #ffb3ff; 
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+.tarjeta .p-desc {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.4;
+}
+
+.tarjeta .p-cat {
+    font-size: 0.8em;
+    background-color: rgba(197, 0, 197, 0.3);
+    padding: 3px 8px;
+    border-radius: 20px;
+    display: inline-block;
+    align-self: flex-start;
+    text-transform: uppercase;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain; 
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 15px 0;
+    box-sizing: border-box;
+}
+
+/* Botones generales de las tarjetas (Editar / Eliminar) */
+.tarjeta button {
+    padding: 8px 12px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+/* Botón Editar */
+.tarjeta button[onclick^="editar"] {
+    background-color: rgb(197, 0, 197);
+    color: white;
+}
+
+.tarjeta button[onclick^="editar"]:hover {
+    background-color: rgb(230, 0, 230);
+}
+
+/* Botón Eliminar */
+.tarjeta button[onclick^="eliminar"] {
+    background-color: rgb(231, 76, 60);
+    color: white;
+}
+
+.tarjeta button[onclick^="eliminar"]:hover {
+    background-color: rgb(192, 57, 43);
+}
+
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS PARA LA VISTA DEL CARRITO
+   ========================================================================== */
+
+/* Cuando la tarjeta contiene un carrito entero */
+.tarjeta header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.tarjeta header h2 {
+    margin: 0;
+    font-size: 1.3em;
+    color: #ff66ff;
+}
+
+.tarjeta header h4 {
+    margin: 5px 0 0 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Lista interna de productos comprados */
+.lista-productos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.producto-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid rgb(197, 0, 197);
+    padding: 12px;
+    border-radius: 0 6px 6px 0;
+}
+
+/* Miniaturas en el carrito */
+.producto-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    float: left; 
+    margin: 0 12px 10px 0;
+    background-color: white;
+    padding: 3px;
+}
+
+.producto-item::after {
+    content: "";
+    display: table;
+    clear: both;
+}
